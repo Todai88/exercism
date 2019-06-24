@@ -3,4 +3,17 @@
 -export([leap_year/1]).
 
 
-leap_year(_Year) -> undefined.
+leap_year(_Year) ->
+    if
+        _Year rem 4 =:= 0->
+            if
+                _Year rem 400 =:= 0 ->
+                    true;
+                _Year rem 100 =:= 0 ->
+                    false;
+                true ->
+                    true
+            end;
+        true ->
+            false
+    end.
